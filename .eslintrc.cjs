@@ -25,7 +25,7 @@ module.exports = {
     "plugin:react-hooks/recommended",
     "prettier",
   ],
-  plugins: ["react-refresh", "testing-library"],
+  plugins: ["react-refresh"],
   overrides: [
     {
       files: ["**/__tests__/**/*.[jt]sx?", "**/?(*.)+(spec|test).[jt]sx?"],

@@ -7,17 +7,24 @@ import App from "./App.tsx";
  */
 
 describe("App", () => {
-  test("it renders", async () => {
+  test("it renders", () => {
     render(<App />);
 
     expect(screen.getByAltText(/vite logo/i)).toBeInTheDocument();
     expect(screen.getByAltText(/react logo/i)).toBeInTheDocument();
+    expect(screen.getByAltText(/vitest logo/i)).toBeInTheDocument();
+  });
+
+  test("counter works", async () => {
+    render(<App />);
+
+    const count = screen.getByTestId("count");
+    expect(count).toHaveTextContent("0");
 
     const button = screen.getByRole("button");
-    expect(button).toHaveTextContent(/0/);
+    await userEvent.click(button);
+    await userEvent.click(button);
 
-    await userEvent.click(button);
-    await userEvent.click(button);
-    expect(button).toHaveTextContent(/2/);
+    expect(count).toHaveTextContent("2");
   });
 });

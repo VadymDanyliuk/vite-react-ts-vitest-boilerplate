@@ -1,3 +1,4 @@
 build
+coverage
 .eslintrc.cjs
 vite.config.ts
